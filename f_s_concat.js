@@ -3,7 +3,7 @@ const returnsecondname=require("./secondname");
 const returnfullname=require("./combinenames")
 
 let firstnameresult=returnfirstname.firstname("john");
-let secondnameresult=returnsecondname.secondname();
+let secondnameresult=returnsecondname.secondname("123");
 let fullnameresult=returnfullname.concatresul("john","deo");
 
 console.log(firstnameresult);

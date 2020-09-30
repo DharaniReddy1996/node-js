@@ -1,16 +1,14 @@
 function returnsecondname(sname)
 {
-    // return "your last name is:" +sname;
     try {
 
-        if (sname==(isNaN) && sname=="null")
+        if (sname==(isNaN))
             throw err1;
             
-        return 'your first name is: '+sName;
+        return 'your first name is: '+sname;
         }
-         catch(err){
+         catch(err1){
             return 'Please enter the valid name';
                 }
-}
-
+            }
 module.exports.secondname=returnsecondname;

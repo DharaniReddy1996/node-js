@@ -1,0 +1,14 @@
+{
+  "name": "node_http_server1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "httpserver1.js",
+  "scripts": {
+    "start": "nodemon httpserver1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

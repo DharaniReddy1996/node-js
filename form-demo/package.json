@@ -1,0 +1,16 @@
+{
+  "name": "form-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "form.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon form.js",
+    "start-server": "nodemon form.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

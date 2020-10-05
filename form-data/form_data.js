@@ -29,6 +29,13 @@ const server = http.createServer((req, res) => {
             const message=message1[1];
             fs.writeFileSync('message.txt', message);
         });
+
+        res.statusCode=302;
+        console.log('Hi');
+        res.setHeader('Location','/'); 
+        // by writting above three line code,after hitting send the page return to the same page not to message page in address bar
+        
+        // if we do not write the above code the page goes to message in address bar
         return res.end();
     }
 

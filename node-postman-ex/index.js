@@ -1,12 +1,13 @@
 const express = require('express')
+const uuid = require('uuid-random');
 const Joi = require('joi')
 const app=express();
 app.use(express.json());
 
 let generes=[
-    {id:1,name:'action'},
-    {id:2,name:'thriller'},
-    {id:3,name:'romantic'}
+    {id:uuid(),name:'action'},
+    {id:uuid(),name:'thriller'},
+    {id:uuid(),name:'romantic'}
 ]
 
 // retriving all the array
@@ -49,7 +50,7 @@ app.post('/api/generes', (req, res) => {
     if (error) return res.status(400).send(error.details[0].message);
 
     const genre = {
-        id: generes.length + 1,
+        id: uuid(),
         name: req.body.name
     };
     generes.push(genre);

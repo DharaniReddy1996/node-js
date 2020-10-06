@@ -1,12 +1,13 @@
 const express = require('express')
+const uuid = require('uuid-random');
 const Joi = require('joi')
 const app=express();
 app.use(express.json());
 
 let movies=[
-    {id:1,name:'Nishabdam',rating:4},
-    {id:2,name:'Bishma',rating:5},
-    {id:3,name:'Bhahubali',rating:2}
+    {id:uuid(),name:'Nishabdam',rating:4},
+    {id:uuid(),name:'Bishma',rating:5},
+    {id:uuid(),name:'Bhahubali',rating:2}
 ]
 
 // retriving all the array
@@ -46,7 +47,7 @@ app.get('/api/movies/:id', (req, res) => {
         const { error } = validateMovie(req.body);
         if (error) return res.status(400).send(error.details[0].message);
     const movie={
-        id:movies.length+1,
+        id:uuid(),
         name:req.body.name,
         rating:req.body.rating
     };

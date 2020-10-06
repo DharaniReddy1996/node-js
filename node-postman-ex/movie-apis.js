@@ -69,6 +69,18 @@ app.get('/api/movies/:id', (req, res) => {
         res.send(movie);
     })
 
+    app.delete('/api/movies/:id',(req,res) => {
+        let id=parseInt(req.params.id);
+        const movie = movies.find(c=> c.id == id);
+    
+        if(!movie){
+            return res.status(404).send(`The movie with the id ${id} was not found.`);
+        }
+        const index=movies.indexOf(movie);
+        movies.splice(index, 1);
+        res.send(movie);
+    })
+
 
 let port=process.env.POST || 3000;
 app.listen(port,function(){

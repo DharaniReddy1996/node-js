@@ -1,6 +1,7 @@
 const express = require('express')
 const uuid = require('uuid-random');
-const Joi = require('joi')
+const Joi = require('joi');
+const router = require('../node-routing-ex/route/admin');
 const app=express();
 app.use(express.json());
 
@@ -97,3 +98,4 @@ function validateMovie(movie) {
     return Joi.validate(movie, schema);
 } 
 
+module.exports=router;

@@ -16,21 +16,51 @@ const studentSchema=new mongoose.Schema(
     });
 
 const Student=mongoose.model('Student',studentSchema);
-let student=new Student({
-    firstName: 'dharani',
-    lastName: 'reddy',
-    email: 'dharanirdy@email.com'
-});
-async function createStudent()
-{
-    let result = await student.save();
 
-    console.log(result);
+// for creating the student database use following steps..... and student.save
+
+// let student=new Student({
+//     firstName: 'dharani',
+//     lastName: 'reddy',
+//     email: 'dharanirdy@email.com'
+// });
+// async function createStudent()
+// {
+//     let result = await student.save();
+
+//     console.log(result);
+// }
+
+// createStudent().then(function (){
+//     console.log('Student created: ');
+
+// }).catch(error => {
+//     console.log('Error creating student:',error.message);
+// });
+
+
+// to retrive the total students list in database use getstudent() and student.find
+
+async function getStudents()
+{
+    let result = await Student.find();
+    console.log('displaying students',result);
+    console.log('called getStudents()');
 }
 
-createStudent().then(function (){
-    console.log('Student created: ');
+async function run()
+{
+    getStudents().then(function(){
+        console.log('called run function');
+    }).catch(error => {
+        console.log(error.message);
+    })
+}
+run().then(function () {
+    console.log('finished running');
 
 }).catch(error => {
-    console.log('Error creating student:',error.message);
+    console.log(error.message);
+
 });
+

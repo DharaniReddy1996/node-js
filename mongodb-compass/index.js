@@ -86,17 +86,41 @@ const Student=mongoose.model('Student',studentSchema);
 
 // find bt first name
 
-async function findStudentByNAME(name)
-{
-    let result = await Student.find({firstName: name})
-    .select("firstName lastName")
-        console.log('Student found:',result);
+// async function findStudentByNAME(name)
+// {
+//     let result = await Student.find({firstName: name})
+//     .select("firstName lastName")
+//         console.log('Student found:',result);
 
-}
+// }
 
-findStudentByNAME('dharani').then(()=>{
-    console.log('finished finding student')
+// findStudentByNAME('dharani').then(()=>{
+//     console.log('finished finding student')
 
-}).catch(reason => {
-    console.log('Error with finding student')
-}); 
+// }).catch(reason => {
+//     console.log('Error with finding student')
+// }); 
+
+
+// sorting of names(ase des)
+
+async function findByFirstName(firstName) {
+    /* let result = await Student.find({firstName: firstName})
+         .select('firstName lastName')
+         console.log('Student found:', result);*/
+ 
+     let result = await Student.find()
+         .select('firstName lastName')
+    // .sort('firstName');
+         .sort({firstName:-1});
+     console.log('Student found:', result);
+ 
+ }
+ 
+ findByFirstName('John').then(function () {
+ 
+ }).catch(reason => {
+ 
+ });
+ 
+ 

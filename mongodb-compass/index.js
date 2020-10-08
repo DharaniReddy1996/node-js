@@ -13,7 +13,8 @@ const studentSchema=new mongoose.Schema(
         lastName:String,
         email:String,
         doj:{type: Date,default:Date.now()}
-    });
+    }
+    );
 
 const Student=mongoose.model('Student',studentSchema);
 

@@ -40,19 +40,33 @@ const Course = mongoose.model('Course', courseSchema);
 
 // update many will update all with the name mosh 
 // if we use update it will update only one 
-async function updateCourse()
-{
+
+// async function updateCourse()
+// {
     // const result = await Course.updateMany({ author: 'Mosh' }, {
 
-        const result = await Course.update({ author: 'Mosh' }, {
+//         const result = await Course.update({ author: 'Mosh' }, {
 
-        $set: { name: 'Learning hockey'}
+//         $set: { name: 'Learning hockey'}
 
 
-});
-    console.log('course update success');
+// });
+//     console.log('course update success');
+// }
+
+// updateCourse().then(() =>{
+//     console.log('success');
+// } );
+
+
+async function updateCourse(id)
+{
+    let course = await Course.findByIdAndUpdate({_id: id}, {
+       $set: {name: 'Learning Angular', author: 'Mr. Balaguruswamy'}
+    },{new:true});
+    console.log(course);
 }
 
-updateCourse().then(() =>{
+updateCourse('5f7ff25c5684cb13e84df606').then(() => {
     console.log('success');
-} );
+});

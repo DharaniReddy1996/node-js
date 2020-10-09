@@ -59,14 +59,33 @@ const Course = mongoose.model('Course', courseSchema);
 // } );
 
 
-async function updateCourse(id)
-{
-    let course = await Course.findByIdAndUpdate({_id: id}, {
-       $set: {name: 'Learning Angular', author: 'Mr. Balaguruswamy'}
-    },{new:true});
-    console.log(course);
-}
+// async function updateCourse(id)
+// {
+//     let course = await Course.findByIdAndUpdate({_id: id}, {
+//        $set: {name: 'Learning Angular', author: 'Mr. Balaguruswamy'}
+//     },{new:true});
+//     console.log(course);
+// }
 
-updateCourse('5f7ff25c5684cb13e84df606').then(() => {
+// updateCourse('5f7ff25c5684cb13e84df606').then(() => {
+//     console.log('success');
+// });
+
+
+
+async function removeCourse()
+{
+//    const course =Course.deleteOne({_id : id},() => {
+//         console.log('delete course success',course);
+//     });
+  /*  const course = await Course.findByIdAndRemove( {_id:id})
+    {
+        console.log(course);
+    }
+*/
+    const result = await Course.deleteMany({author:'Mary'});
+    console.log(result);
+}
+removeCourse().then(() =>{
     console.log('success');
-});
+} );

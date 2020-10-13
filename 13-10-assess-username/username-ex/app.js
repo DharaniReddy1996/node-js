@@ -9,8 +9,8 @@ const userRoutes = require('./routes/user');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('view engine', 'pug');
-app.set('views','views');
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
 app.use('/admin', adminData.router);
 app.use(userRoutes);

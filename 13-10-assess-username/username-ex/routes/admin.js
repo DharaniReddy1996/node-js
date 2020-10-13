@@ -8,7 +8,7 @@ const users=[];
 
 // /admin/add-user => GET
 router.get('/add-user', (req, res, next) => {
-    res.render('add-user',{pageTitle:'add-user'})
+    res.render('add-user',{pageTitle:'add-user',activeAddUser: true})
 });
 
 // /admin/add-user => POST

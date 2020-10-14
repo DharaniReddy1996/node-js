@@ -13,9 +13,10 @@ exports.postAddUser = (req, res) => {
 };
 
 exports.getUser = (req, res) => {
-    const users = User.fetchAll();
-    res.render('user', {uname: users, pageTitle: 'user', path: '/'});
-};
+    const users = User.fetchAll(users => {
+        res.render('user', {uname: users,pageTitle: 'user',path: '/'});
+      });
+    };
 
 exports.getHome = (req, res) => {
     res.render('home', {pageTitle: 'home',path:'/home'});
